@@ -60,10 +60,6 @@ export function InterestPage() {
     fetchUserData();
   }, [user!.id]);
 
-  if (!isSignedIn) {
-    return null;
-  }
-
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
