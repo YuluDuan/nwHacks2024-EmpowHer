@@ -8,8 +8,8 @@ import {sigmar_one} from "@/app/font";
 
 export default function Home() {
   return (
-      <main className="flex min-h-screen bg-pink flex-col items-center justify-between px-24 pt-10">
-        <div className="flex justify-between py-6 px-10 h-20 bg-pink items-center">
+      <main className="flex min-h-screen bg-pink flex-col items-center px-24 pt-10">
+        <div className="flex py-6 px-10 h-20 bg-pink items-center">
           <div className="flex gap-1 items-center left-0">
             <Image
                 src="/assets/icon.svg"
