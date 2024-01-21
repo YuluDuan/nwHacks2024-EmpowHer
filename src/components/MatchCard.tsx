@@ -18,7 +18,7 @@ const MatchCard = (props: {
 
       <div className="flex flex-wrap gap-4 pb-5">
         {props.techField.map((item: any) => (
-          <Badge variant="outline" className="bg-white">
+          <Badge variant="outline" className="bg-white" key={`bage-${item}`}>
             {item}
           </Badge>
         ))}

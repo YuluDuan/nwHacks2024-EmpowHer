@@ -10,6 +10,7 @@ const MatchPage = async () => {
     <div className="h-screen mx-20 my-20">
       {users.map((item: any) => (
         <MatchCard
+          key={`match-${item}`}
           imageURL={item.imageUrl}
           firstName={item.firstName}
           lastName={item.lasttName}
