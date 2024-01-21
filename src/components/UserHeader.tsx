@@ -12,7 +12,9 @@ const UserHeader = () => {
           alt="empowher icon"
           src="/assets/icon.svg"
         />
-        <p className={`${sigmar_one.className} text-5xl`}>My Profile</p>
+        <p className={`${sigmar_one.className} text-5xl text-black`}>
+          My Profile
+        </p>
       </div>
 
       <Link className="text-lg py-3 underline decoration-solid" href="/home">

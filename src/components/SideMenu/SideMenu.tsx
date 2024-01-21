@@ -42,12 +42,6 @@ const SideMenu = () => {
         href: "/user/interests",
         active: pathname === "/user/interests",
       },
-
-      {
-        label: "Level of Experience",
-        href: "/user/interests",
-        active: pathname === "/user/interests",
-      },
     ],
     [pathname]
   );
