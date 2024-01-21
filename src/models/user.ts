@@ -25,7 +25,9 @@ const UserSchema = new Schema({
 
     years: { type: Number},
 
-    techStack: {type : Array,  default: []},
+    content: {
+      type: String,
+    }
   });
   
   const User = models.User || model('User', UserSchema);
