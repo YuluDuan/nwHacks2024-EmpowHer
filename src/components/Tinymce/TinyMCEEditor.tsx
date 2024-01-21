@@ -9,12 +9,11 @@ const TinyMCEEditor = (props: { initialValue: string; id: string }) => {
   const [value, setValue] = useState(props.initialValue ?? "");
   useEffect(() => setValue(props.initialValue ?? ""), [props.initialValue]);
 
-  const handleOnClick = () => {
-    async () => {
-      await updateUserContent(props.id, value);
-      console.log("saved");
-    };
+  const handleOnClick = async () => {
+    await updateUserContent(props.id, value);
+    console.log("saved");
   };
+
   return (
     <>
       <Editor
