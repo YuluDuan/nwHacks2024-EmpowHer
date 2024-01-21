@@ -1,7 +1,11 @@
+import React from "react";
+import Link from "next/link"
+import {black_han_sans} from "@/app/font";
+
 const LogInButton = () => {
     return (
-    <button className="rounded-md bg-pink-dark text-white mr-5">
+    <Link href="/sign-in" className={`w-32 ${black_han_sans.className} py-2 pl-2 text-center rounded-2xl bg-pink-dark text-white`}>
         LOG IN
-    </button>);
+    </Link>);
 }
 export default LogInButton;
