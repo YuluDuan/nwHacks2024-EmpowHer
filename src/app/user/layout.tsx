@@ -9,10 +9,10 @@ export default function UserLayout({
 }) {
   return (
     <section
-      className={`flex flex-col ${cantarell.className} bg-pale h-screen w-screen`}
+      className={`flex flex-col ${cantarell.className} bg-pale h-full w-full`}
     >
       <UserHeader />
-      <div className="grow h-full flex">
+      <div className="grow flex">
         <SideMenu />
         {children}
       </div>

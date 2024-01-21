@@ -28,3 +28,18 @@ export async function createUser(id: String, email_addresses: Object, first_name
   console.log(err);
 }
 }
+
+
+export async function updateUserContent(id: String, newContent: String) {
+  try {
+    connectToDB();
+    const user = await User.updateOne(
+      { user_id: id },
+      { $set: { content: newContent } }
+   );
+   
+   return NextResponse.json({ message: "User updated" }, { status: 201 });
+  } catch (error: any) {
+    throw new Error(`Failed to fetch user: ${error.message}`);
+  }
+}
