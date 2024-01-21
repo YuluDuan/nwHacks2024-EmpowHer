@@ -41,7 +41,7 @@ const FormSchema = z.object({
   }),
 });
 
-export function InterestPage() {
+function InterestPage() {
   const { isSignedIn, user, isLoaded } = useUser();
   const [interests, updateInterests] = useInterestStore((state) => [
     state.interests,
