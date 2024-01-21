@@ -1,5 +1,6 @@
 import { fetchUser } from "@/actions/user.actions";
 import TinyMCEEditor from "@/components/Tinymce/TinyMCEEditor";
+import useContentStore from "@/store/useContentStore";
 import { UserButton, currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 

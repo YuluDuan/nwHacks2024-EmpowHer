@@ -2,22 +2,29 @@
 
 import { updateUserContent } from "@/actions/user.actions";
 import { Button } from "@/components/ui/button";
+import useContentStore from "@/store/useContentStore";
 import { Editor } from "@tinymce/tinymce-react";
 import { useEffect, useState } from "react";
 
 const TinyMCEEditor = (props: { initialValue: string; id: string }) => {
   const [value, setValue] = useState(props.initialValue ?? "");
-  useEffect(() => setValue(props.initialValue ?? ""), [props.initialValue]);
+
+  const [content, updateContent] = useContentStore((state) => [
+    state.content,
+    state.updateContent,
+  ]);
+
+  useEffect(() => updateContent(props.initialValue ?? ""), []);
 
   const handleOnClick = async () => {
     await updateUserContent(props.id, value);
-    console.log("saved");
+    updateContent(value);
   };
 
   return (
     <>
       <Editor
-        initialValue={props.initialValue}
+        initialValue={content}
         value={value}
         onEditorChange={(newValue, editor) => setValue(newValue)}
         apiKey={process.env.Editor_apiKey}
