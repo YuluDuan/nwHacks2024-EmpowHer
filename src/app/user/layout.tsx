@@ -12,7 +12,7 @@ export default function UserLayout({
       className={`flex flex-col ${cantarell.className} bg-pale h-full w-full`}
     >
       <UserHeader />
-      <div className="grow flex">
+      <div className="flex w-full h-full">
         <SideMenu />
         {children}
       </div>
