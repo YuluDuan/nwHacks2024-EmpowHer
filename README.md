@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### We are an online community platform that fosters self-growth, building confidence, career development, and creating meaningful and long-lasting personal connections among women* in tech.
 
 ## Getting Started
 
