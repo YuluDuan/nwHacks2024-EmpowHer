@@ -17,12 +17,6 @@ const config = {
         "2xl": "1400px",
       },
     },
-    fontFamily: {
-      'name': ['"Sigmar One"'],
-      'header': ['"Bungee Spice"'],
-      'body': ['"Black Han Sans"'],
-      'special': ['Cantarell']
-    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
