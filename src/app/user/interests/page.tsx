@@ -48,10 +48,6 @@ export function InterestPage() {
     state.updateInterests,
   ]);
 
-  if (!isSignedIn) {
-    return null;
-  }
-
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -63,6 +59,10 @@ export function InterestPage() {
     };
     fetchUserData();
   }, [user!.id]);
+
+  if (!isSignedIn) {
+    return null;
+  }
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
