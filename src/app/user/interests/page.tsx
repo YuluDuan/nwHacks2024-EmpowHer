@@ -1,6 +1,21 @@
-import InterestCard from "@/components/InterestCard/InterestCard";
+"use client";
 
-const interestsArray = [
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+
+const items = [
   "🎨 Graphic Design",
   "🤖 Artificial Intelligence",
   "🎮 Game Development",
@@ -16,17 +31,79 @@ const interestsArray = [
   "💻 Software Development",
 ];
 
-const InterestPage = () => {
+const FormSchema = z.object({
+  items: z.array(z.string()).refine((value) => value.some((item) => item), {
+    message: "You have to select at least one item.",
+  }),
+});
+
+export function InterestPage() {
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      items: [],
+    },
+  });
+
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    console.log(data);
+  }
+
   return (
-    <>
-      <div className="pb-6">Your Interest</div>
-      <div className="flex flex-wrap gap-6">
-        {interestsArray.map((item, idex) => (
-          <InterestCard text={item} key={`item-${idex}`} />
-        ))}
-      </div>
-    </>
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <FormField
+          control={form.control}
+          name="items"
+          render={() => (
+            <FormItem>
+              <div className="mb-6">
+                <FormLabel className="text-base">Your Interest</FormLabel>
+              </div>
+
+              <div className="flex flex-wrap gap-6">
+                {items.map((item, index) => (
+                  <FormField
+                    key={`${item}-${index}`}
+                    control={form.control}
+                    name="items"
+                    render={({ field }) => {
+                      return (
+                        <FormItem
+                          key={item}
+                          className="space-y-0 h-12 rounded-xl bg-white text-center py-2 px-4 border border-slate flex gap-2 items-center"
+                        >
+                          <FormControl>
+                            <Checkbox
+                              checked={field.value?.includes(item)}
+                              onCheckedChange={(checked) => {
+                                return checked
+                                  ? field.onChange([...field.value, item])
+                                  : field.onChange(
+                                      field.value?.filter(
+                                        (value) => value !== item
+                                      )
+                                    );
+                              }}
+                            />
+                          </FormControl>
+                          <FormLabel className="text-sm font-normal">
+                            {item}
+                          </FormLabel>
+                        </FormItem>
+                      );
+                    }}
+                  />
+                ))}
+              </div>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit">Submit</Button>
+      </form>
+    </Form>
   );
-};
+}
 
 export default InterestPage;
