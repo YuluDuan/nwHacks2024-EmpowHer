@@ -43,3 +43,18 @@ export async function updateUserContent(id: String, newContent: String) {
     throw new Error(`Failed to fetch user: ${error.message}`);
   }
 }
+
+
+export async function updateUserInterest(id: String, newInterests: Object) {
+  try {
+    connectToDB();
+    const user = await User.updateOne(
+      { user_id: id },
+      { $set: { techField: newInterests } }
+   );
+   
+   return NextResponse.json({ message: "User updated" }, { status: 201 });
+  } catch (error: any) {
+    throw new Error(`Failed to fetch user: ${error.message}`);
+  }
+}

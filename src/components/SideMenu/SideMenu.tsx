@@ -52,7 +52,7 @@ const SideMenu = () => {
 
   return (
     <>
-      <nav className="ml-20 my-20 w-1/5  border-r-2 border-black-dark">
+      <nav className="ml-20 my-20 w-1/5 h-screen border-r-2 border-black-dark">
         <div className="flex flex-col text-black gap-10 text-xl">
           {routes.map((item) => (
             <SideMenuItem key={item.label} {...item} />
