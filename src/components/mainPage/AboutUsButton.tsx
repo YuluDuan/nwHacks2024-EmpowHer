@@ -1,10 +1,11 @@
 import {black_han_sans} from "@/app/font";
+import Link from "next/link";
 
 function AboutUsButton () {
     return (
-        <button className={`${black_han_sans.className} text-center align-middle bg-transparent text-black font-body font-bold`}>
+        <Link href="/sign-up" className={`w-20 ${black_han_sans.className} py-2 text-bottom text-black font-bold`}>
             About Us
-        </button>
+        </Link>
     )
 }
 //className="rounded-md bg-green-dark text-black font-body font-bold"
