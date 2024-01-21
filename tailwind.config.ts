@@ -58,7 +58,8 @@ const config = {
           dark: "#FF8BA7"
         },
         black: {
-          DEFAULT: "#445964"
+          DEFAULT: "#445964",
+          dark: "#000",
         },
         green: {
           DEFAULT: "#C3F0CA",
