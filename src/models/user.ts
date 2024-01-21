@@ -21,7 +21,7 @@ const UserSchema = new Schema({
       required: [true, 'User id is required.'],
     },
 
-    techField: { type : Array , default : ['development'] },
+    techField: { type : Array },
 
     years: { type: Number},
 

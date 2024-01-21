@@ -1,5 +1,6 @@
 "use client";
 
+import { useUser } from "@clerk/nextjs";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -14,6 +15,9 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { fetchUser, updateUserInterest } from "@/actions/user.actions";
+import { useEffect } from "react";
+import useInterestStore from "@/store/useInterestStore";
 
 const items = [
   "🎨 Graphic Design",
@@ -38,14 +42,38 @@ const FormSchema = z.object({
 });
 
 export function InterestPage() {
+  const { isSignedIn, user, isLoaded } = useUser();
+  const [interests, updateInterests] = useInterestStore((state) => [
+    state.interests,
+    state.updateInterests,
+  ]);
+
+  if (!isSignedIn) {
+    return null;
+  }
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const userDB = await fetchUser(user!.id);
+        updateInterests(userDB.techField);
+      } catch (error) {
+        console.error("Failed to fetch user data:", error);
+      }
+    };
+    fetchUserData();
+  }, [user!.id]);
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      items: [],
+      items: interests,
     },
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
+    const newUser = updateUserInterest(user!.id, data.items);
+    updateInterests(data.items);
     console.log(data);
   }
 
