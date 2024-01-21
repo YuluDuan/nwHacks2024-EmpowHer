@@ -7,7 +7,7 @@ const MatchPage = async () => {
   if (!user) return null;
   const users = await matchUser(user.id);
   return (
-    <div className="h-screen mx-20 my-20">
+    <div className="h-screen mx-20 my-20 flex flex-wrap gap-8">
       {users.map((item: any) => (
         <MatchCard
           key={`match-${item}`}
