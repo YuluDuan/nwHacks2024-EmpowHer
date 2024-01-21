@@ -15,7 +15,8 @@ export default async function HomePage() {
           user.id,
           user.emailAddresses,
           user.firstName!,
-          user.lastName!
+          user.lastName!,
+          user.imageUrl
         );
       }
     } catch (error) {
