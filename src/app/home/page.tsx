@@ -30,7 +30,7 @@ export default async function HomePage() {
       <div className="h-screen bg-pink px-20 pt-12 flex flex-col">
         <div className="flex flex-row-reverse gap-3 items-center align-center">
           <UserButton afterSignOutUrl="/" />
-          <h2 className={`text-black ${black_han_sans.className} text-center`}> {user.firstName}'s profile</h2>
+          <h2 className={`text-black ${black_han_sans.className} text-center`}> Profile of {user.firstName}</h2>
         </div>
         <HomeComp />
       </div>
