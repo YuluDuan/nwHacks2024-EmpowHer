@@ -5,9 +5,11 @@ import { Button } from "@/components/ui/button";
 import useContentStore from "@/store/useContentStore";
 import { Editor } from "@tinymce/tinymce-react";
 import { useEffect, useState } from "react";
+import { useToast } from "@/components/ui/use-toast";
 
 const TinyMCEEditor = (props: { initialValue: string; id: string }) => {
   const [value, setValue] = useState(props.initialValue ?? "");
+  const { toast } = useToast();
 
   const [content, updateContent] = useContentStore((state) => [
     state.content,
@@ -17,8 +19,12 @@ const TinyMCEEditor = (props: { initialValue: string; id: string }) => {
   useEffect(() => updateContent(props.initialValue ?? ""), []);
 
   const handleOnClick = async () => {
-    await updateUserContent(props.id, value);
     updateContent(value);
+    toast({
+      title: "Profile Description Saved!",
+    });
+
+    await updateUserContent(props.id, value);
   };
 
   return (

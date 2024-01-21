@@ -18,6 +18,7 @@ import {
 import { fetchUser, updateUserInterest } from "@/actions/user.actions";
 import { useEffect } from "react";
 import useInterestStore from "@/store/useInterestStore";
+import { useToast } from "@/components/ui/use-toast";
 
 const items = [
   "🎨 Graphic Design",
@@ -43,6 +44,7 @@ const FormSchema = z.object({
 });
 
 function InterestPage() {
+  const { toast } = useToast();
   const { user } = useUser();
   const [interests, updateInterests] = useInterestStore((state) => [
     state.interests,
@@ -78,6 +80,14 @@ function InterestPage() {
     const newUser = updateUserInterest(user!.id, data.items);
     updateInterests(data.items);
     console.log(data);
+    toast({
+      title: "You submitted the following values:",
+      description: (
+        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+        </pre>
+      ),
+    });
   }
 
   return (
