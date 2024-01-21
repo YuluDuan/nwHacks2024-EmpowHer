@@ -1,6 +1,5 @@
 import UserHeader from "@/components/UserHeader";
 import { cantarell } from "../font";
-import SideMenu from "@/components/SideMenu/SideMenu";
 
 export default function UserLayout({
   children,
@@ -11,11 +10,8 @@ export default function UserLayout({
     <section
       className={`flex flex-col ${cantarell.className} bg-pale h-full w-full`}
     >
-      <UserHeader label={"My Profile"} />
-      <div className="flex w-full h-full">
-        <SideMenu />
-        {children}
-      </div>
+      <UserHeader label={"EMPOWHER"} />
+      {children}
     </section>
   );
 }

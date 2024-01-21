@@ -2,7 +2,7 @@ import { sigmar_one } from "@/app/font";
 import Link from "next/link";
 import Image from "next/image";
 
-const UserHeader = () => {
+const UserHeader = (props: { label: string }) => {
   return (
     <nav className="flex justify-between py-6 px-10 w-full h-24 bg-pink items-center">
       <div className="flex gap-1">
@@ -13,7 +13,7 @@ const UserHeader = () => {
           src="/assets/icon.svg"
         />
         <p className={`${sigmar_one.className} text-5xl text-black`}>
-          My Profile
+          {props.label}
         </p>
       </div>
 

@@ -21,7 +21,12 @@ const UserSchema = new Schema({
       required: [true, 'User id is required.'],
     },
 
-    techField: { type : Array , default : ["🔥 NwHacks"] },
+    imageUrl: {
+      type: String,
+      required: [true, 'User id is required.'],
+    },
+
+    techField: { type : Array , default : [] },
 
     years: { type: Number},
 
