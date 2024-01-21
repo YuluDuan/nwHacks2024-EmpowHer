@@ -22,7 +22,7 @@ function mainContent() {
             </div>
             <Image
                 className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert right-0 align=009"
-                src="/main_page.svg"
+                src="/assets/main_page.svg"
                 alt="main page svg"
                 width={400}
                 height={400}/>
