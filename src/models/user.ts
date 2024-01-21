@@ -21,7 +21,7 @@ const UserSchema = new Schema({
       required: [true, 'User id is required.'],
     },
 
-    techField: { type : Array },
+    techField: { type : Array , default : ["🔥 NwHacks"] },
 
     years: { type: Number},
 

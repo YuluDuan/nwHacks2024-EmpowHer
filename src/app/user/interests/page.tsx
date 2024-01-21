@@ -33,6 +33,7 @@ const items = [
   "☁️ Cloud Architecture",
   "🔐 Cybersecurity",
   "💻 Software Development",
+  "🔥 NwHacks",
 ];
 
 const FormSchema = z.object({
@@ -42,7 +43,7 @@ const FormSchema = z.object({
 });
 
 function InterestPage() {
-  const { isSignedIn, user, isLoaded } = useUser();
+  const { user } = useUser();
   const [interests, updateInterests] = useInterestStore((state) => [
     state.interests,
     state.updateInterests,
@@ -51,14 +52,18 @@ function InterestPage() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const userDB = await fetchUser(user!.id);
-        updateInterests(userDB.techField);
+        if (user) {
+          const userDB = await fetchUser(user!.id);
+          updateInterests(userDB.techField);
+        } else {
+          console.log("no user");
+        }
       } catch (error) {
         console.error("Failed to fetch user data:", error);
       }
     };
     fetchUserData();
-  }, [user!.id]);
+  }, []);
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -66,6 +71,8 @@ function InterestPage() {
       items: interests,
     },
   });
+
+  console.log(interests);
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     const newUser = updateUserInterest(user!.id, data.items);
@@ -100,7 +107,7 @@ function InterestPage() {
                           <FormControl>
                             <Checkbox
                               checked={field.value?.includes(item)}
-                              onCheckedChange={(checked) => {
+                              onCheckedChange={(checked: any) => {
                                 return checked
                                   ? field.onChange([...field.value, item])
                                   : field.onChange(

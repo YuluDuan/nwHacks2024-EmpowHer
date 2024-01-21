@@ -6,7 +6,7 @@ type ReactInterestState = {
 };
 
 const useFlowStore = create<ReactInterestState>((set) => ({
-  interests: null,
+  interests: [],
   updateInterests: (updatedInterests: any) =>
     set(() => ({ interests: updatedInterests })),
 }));
