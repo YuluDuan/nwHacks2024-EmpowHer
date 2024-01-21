@@ -4,6 +4,8 @@ import { redirect } from "next/navigation";
 import {black_han_sans, sigmar_one} from "@/app/font";
 import HomeComp from "@/components/homePage/HomeComp"
 import React from "react";
+import Link from "next/link";
+
 export default async function HomePage() {
   const user = await currentUser();
 
@@ -30,7 +32,9 @@ export default async function HomePage() {
       <div className="h-screen bg-pink px-20 pt-12 flex flex-col">
         <div className="flex flex-row-reverse gap-3 items-center align-center">
           <UserButton afterSignOutUrl="/" />
-          <h2 className={`text-black ${black_han_sans.className} text-center`}> Profile of {user.firstName}</h2>
+          <Link href="/user/basicinfo" className={`text-black ${black_han_sans.className} text-center`}>
+            Profile of {user.firstName}
+          </Link>
         </div>
         <HomeComp />
       </div>
