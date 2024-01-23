@@ -1,4 +1,25 @@
-### We are an online community platform that fosters self-growth, building confidence, career development, and creating meaningful and long-lasting personal connections among women* in tech.
+<p align="center">
+  <a href="https://www.elegantframework.com">
+    <h1 align="center">EmpowHer</h1>
+  </a>
+</p>
+
+<img width="1100" alt="Screen Shot 2024-01-22 at 6 33 43 PM" src="https://github.com/YuluDuan/EmpowHer/assets/92232261/60391d1d-b9dd-405c-9b67-2fafba782388">
+
+<br />
+<br />
+<div align="center"><strong>EmpoHer is designed to foster self-growth, build confidence, career development, and create meaningful and long-lasting personal connections among women* in tech </div>
+
+## 🚀 Features
+
+- 👩🏻‍💻 **Revamp your profile to highlight your distinctive experiences and inspire others who share similar journeys**
+<img width="1233" alt="Screen Shot 2024-01-22 at 6 34 57 PM" src="https://github.com/YuluDuan/EmpowHer/assets/92232261/8dcf1241-0e5b-4de9-95a3-628c8a7184d2">
+
+- 🖊️ **Match your Friends who have the same interests**
+<img width="1261" alt="Screen Shot 2024-01-22 at 7 02 53 PM" src="https://github.com/YuluDuan/EmpowHer/assets/92232261/ebd520d9-f2bb-4d87-a489-cbcca7ef9f82">
+
+
+
 
 ## Getting Started
 
